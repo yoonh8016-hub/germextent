@@ -531,9 +531,17 @@ export const PetriCanvas = forwardRef<PetriCanvasHandle, PetriCanvasProps>(
         const mag = 2.6;
         const sampleHalf = loupeSize / (2 * mag * zoom);
 
+        const drawLoupeShape = () => {
+          ctx.beginPath();
+          if (typeof ctx.roundRect === 'function') {
+            ctx.roundRect(lx, ly, loupeSize, loupeSize, 10);
+          } else {
+            ctx.rect(lx, ly, loupeSize, loupeSize);
+          }
+        };
+
         ctx.save();
-        ctx.beginPath();
-        ctx.roundRect(lx, ly, loupeSize, loupeSize, 10);
+        drawLoupeShape();
         ctx.clip();
 
         ctx.fillStyle = '#090d16';
@@ -571,8 +579,7 @@ export const PetriCanvas = forwardRef<PetriCanvasHandle, PetriCanvasProps>(
         // Loupe border & tag
         ctx.strokeStyle = 'rgba(148, 163, 184, 0.55)';
         ctx.lineWidth = 1.5;
-        ctx.beginPath();
-        ctx.roundRect(lx, ly, loupeSize, loupeSize, 10);
+        drawLoupeShape();
         ctx.stroke();
 
         ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
