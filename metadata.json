@@ -1,0 +1,6 @@
+{
+  "name": "DiscZone Metrology — 항균 억제환 정밀 측정기",
+  "description": "항균 활성 디스크 확산법(Disc Diffusion Assay) 실험 사진의 밝기/대비 보정, 스케일 캘리브레이션, 억제환 순수 면적(πr² - 디스크 면적) 정밀 계측 및 Chart.js 비교 리포트를 제공하는 웹 애플리케이션",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
